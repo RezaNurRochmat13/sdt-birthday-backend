@@ -9,7 +9,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors())
 // User Router
-app.use(userRouter);
+app.use('/api/users',userRouter);
 
 function useApp() {
     app.get("/", (req: Request, res: Response) => {
