@@ -1,10 +1,14 @@
 import UsersRepository from "../repository/user.repository"
 
-const { all, save } = UsersRepository()
+const { all, findById, save } = UsersRepository()
 export default function UsersService() {
 
     async function findAllUsers() {
         return all()
+    }
+
+    async function findUserById(id: string) {
+        return await findById(id)
     }
 
     async function createUser(user: { firstName: string, lastName: string, birthdayDate: Date, location: string }) {
@@ -18,6 +22,7 @@ export default function UsersService() {
 
     return {
         findAllUsers,
+        findUserById,
         createUser,
         deleteUser
     }
