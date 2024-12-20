@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import UsersService from "../service/user.service";
 
-const { findAllUsers, findUserById, createUser } = UsersService()
+const { findAllUsers, findUserById, createUser, deleteUser } = UsersService()
 export default function UsersController() {
     async function index(request: Request, response: Response) {
         const users = await findAllUsers()
@@ -31,7 +31,13 @@ export default function UsersController() {
         })
     }
 
-    async function destroy(request: Request, response: Response) {}
+    async function destroy(request: Request, response: Response) {
+        await deleteUser(request.params.id)
+
+        response.status(200).json({
+            message: 'User deleted successfully'
+        })
+    }
 
     return {
         index,

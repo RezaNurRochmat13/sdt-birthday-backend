@@ -30,7 +30,7 @@ export default function UsersRepository() {
     async function destroy(id: string) {
         return await prisma.user.update({
             where: {
-                id: parseInt(id)
+                id: parseInt(id),
             },
             data: {
                 deletedAt: new Date()

@@ -1,6 +1,6 @@
 import UsersRepository from "../repository/user.repository"
 
-const { all, findById, save } = UsersRepository()
+const { all, findById, save, destroy } = UsersRepository()
 export default function UsersService() {
 
     async function findAllUsers() {
@@ -18,7 +18,9 @@ export default function UsersService() {
     }
 
 
-    async function deleteUser() {}
+    async function deleteUser(id: string) {
+        await destroy(id)
+    }
 
     return {
         findAllUsers,
