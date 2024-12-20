@@ -27,6 +27,16 @@ export default function UsersRepository() {
         return await prisma.user.create({ data: user })
     }
 
+    async function update(id: string, user: { firstName: string, lastName: string, birthdayDate: Date, location: string }) {
+        return await prisma.user.update({
+            where: {
+                id: parseInt(id),
+                deletedAt: null
+            },
+            data: user
+        })
+    }
+
     async function destroy(id: string) {
         return await prisma.user.update({
             where: {
@@ -40,8 +50,9 @@ export default function UsersRepository() {
 
     return {
         all,
-        save,
         findById,
+        save,
+        update,
         destroy
     }
 }

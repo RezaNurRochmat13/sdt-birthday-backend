@@ -1,6 +1,6 @@
 import UsersRepository from "../repository/user.repository"
 
-const { all, findById, save, destroy } = UsersRepository()
+const { all, findById, save, update, destroy } = UsersRepository()
 export default function UsersService() {
 
     async function findAllUsers() {
@@ -13,8 +13,12 @@ export default function UsersService() {
 
     async function createUser(user: { firstName: string, lastName: string, birthdayDate: Date, location: string }) {
         user.birthdayDate = new Date(user.birthdayDate)
-        
         await save(user)
+    }
+
+    async function updateUser(id: string, user: { firstName: string, lastName: string, birthdayDate: Date, location: string }) {
+        user.birthdayDate = new Date(user.birthdayDate)
+        await update(id, user)
     }
 
 
@@ -26,6 +30,7 @@ export default function UsersService() {
         findAllUsers,
         findUserById,
         createUser,
+        updateUser,
         deleteUser
     }
 }
