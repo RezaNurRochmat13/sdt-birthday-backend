@@ -1,7 +1,18 @@
-export default function UsersRepository() {
-    async function all() {}
+import prisma from "../config/database.config"
 
-    async function save(user: {}) {}
+export default function UsersRepository() {
+    async function all() {
+        return await prisma.user.findMany()
+    }
+
+    async function save(user: {
+        firstName: string
+        lastName: string
+        birthdayDate: Date
+        location: string
+    }) {
+        return await prisma.user.create({ data: user })
+    }
 
     async function findById(id: string) {}
 

@@ -4,8 +4,8 @@ import UsersController from "./../controller/users.controller";
 const userRouter = express.Router();
 const { index, create, destroy } = UsersController()
 
-userRouter.get("/users", index);
-userRouter.post("/users", create);
-userRouter.delete("/users/:id", destroy);
+userRouter.get("/", index);
+userRouter.post("/", create);
+userRouter.delete("/:id", destroy);
 
 export default userRouter;
