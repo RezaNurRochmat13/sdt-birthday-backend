@@ -66,6 +66,15 @@ Available endpoints on this application.
 - Output: JSON
 ```
 
+-- Update Users
+
+```bash
+- URL : localhost:8000/api/users/:id
+- Method: PUT
+- Request Body: JSON
+- Output: JSON
+```
+
 -- Soft Delete Users by ID
 
 ```bash
