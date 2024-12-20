@@ -25,6 +25,8 @@ Technology for built application
 - Express
 - Dotenv
 - Cors
+- Prisma ORM
+- PostgreSQL
 - Nodemon
 - TS Node
 - Typescript
@@ -33,7 +35,6 @@ Technology for built application
 ## Database design
 
 Database design of the backend application
-...url
 
 ## Endpoint
 
@@ -42,7 +43,7 @@ Available endpoints on this application.
 -- Fetch all Users
 
 ```bash
-- URL : localhost:8000/users
+- URL : localhost:8000/api/users
 - Method: GET
 - Output: JSON
 ```
@@ -50,7 +51,7 @@ Available endpoints on this application.
 -- Fetch Users by ID
 
 ```bash
-- URL : localhost:8000/users/:id
+- URL : localhost:8000/api/users/:id
 - Method: GET
 - Output: JSON
 ```
@@ -58,16 +59,16 @@ Available endpoints on this application.
 -- Create Users
 
 ```bash
-- URL : localhost:8000/users
+- URL : localhost:8000/api/users
 - Method: POST
 - Request Body: JSON
 - Output: JSON
 ```
 
--- Delete Users by ID
+-- Soft Delete Users by ID
 
 ```bash
-- URL : localhost:8000/users/:id
+- URL : localhost:8000/api/users/:id
 - Method: DELETE
 - Output: JSON
 ```
