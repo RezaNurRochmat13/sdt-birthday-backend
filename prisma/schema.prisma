@@ -21,6 +21,7 @@ model User {
   location String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  deletedAt DateTime?
   sentMessages Message[] @relation("SentMessages")
   receivedMessages Message[] @relation("ReceivedMessages")
 }
@@ -33,6 +34,7 @@ model Message {
   messageSentAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  deletedAt DateTime?
   sentUser User @relation("SentMessages", fields: [sentUserId], references: [id])
   receivedUser User @relation("ReceivedMessages", fields: [receivedUserId], references: [id])
 }
