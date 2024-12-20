@@ -15,6 +15,12 @@ export default function UsersController() {
     async function show(request: Request, response: Response) {
         const user = await findUserById(request.params.id)
 
+        if (!user) {
+            response.status(404).json({
+                message: 'User not found'
+            })
+        }
+
         response.status(200).json({
             message: 'User retrieved successfully',
             data: user
@@ -33,7 +39,16 @@ export default function UsersController() {
 
     async function update(request: Request, response: Response) {
         const { firstName, lastName, birthdayDate, location } = request.body
-        const user = await updateUser(request.params.id, { firstName, lastName, birthdayDate, location })
+        
+        const user = await findUserById(request.params.id)
+
+        if (!user) {
+            response.status(404).json({
+                message: 'User not found'
+            })
+        }
+        
+        await updateUser(request.params.id, { firstName, lastName, birthdayDate, location })
 
         response.status(200).json({
             message: 'User updated successfully',
@@ -42,6 +57,15 @@ export default function UsersController() {
     }
 
     async function destroy(request: Request, response: Response) {
+
+        const user = await findUserById(request.params.id)
+
+        if (!user) {
+            response.status(404).json({
+                message: 'User not found'
+            })
+        }
+        
         await deleteUser(request.params.id)
 
         response.status(200).json({
