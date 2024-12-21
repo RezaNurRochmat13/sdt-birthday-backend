@@ -86,3 +86,11 @@ Available endpoints on this application.
 - Method: DELETE
 - Output: JSON
 ```
+
+-- Fetch all Messages
+
+```bash
+- URL : localhost:8000/api/messages
+- Method: GET
+- Output: JSON
+```
