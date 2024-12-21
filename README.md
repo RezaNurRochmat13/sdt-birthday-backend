@@ -39,7 +39,8 @@ Technology for built application
 ## Database design
 
 Database design of the backend application
-![erd-database](https://github.com/user-attachments/assets/61ee5116-2ddc-4348-8455-53bf1a496d95)
+![image](https://github.com/user-attachments/assets/4dc26e45-9b85-4dde-80f9-956d0b17bea4)
+
 
 ## Endpoint
 
