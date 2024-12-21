@@ -19,6 +19,7 @@ model User {
   lastName    String
   birthdayDate DateTime
   location String
+  timezone String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   deletedAt DateTime?
