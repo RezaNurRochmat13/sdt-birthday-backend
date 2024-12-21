@@ -13,16 +13,31 @@ export default function UsersService() {
         return await findById(id)
     }
 
-    async function createUser(user: { firstName: string, lastName: string, birthdayDate: Date, location: string, timezone: string }) {
+    async function createUser(
+        user: {
+            firstName: string,
+            lastName: string,
+            birthdayDate: Date,
+            location: string,
+            timezone: string 
+        }) {
         user.birthdayDate = new Date(user.birthdayDate)
         const timezone = await getTimezone(user.location)
-        console.log('Timezone location :', timezone)
         user.timezone = timezone
         await save(user)
     }
 
-    async function updateUser(id: string, user: { firstName: string, lastName: string, birthdayDate: Date, location: string }) {
+    async function updateUser(id: string,
+        user: {
+            firstName: string,
+            lastName: string,
+            birthdayDate: Date,
+            location: string,
+            timezone: string 
+        }) {
         user.birthdayDate = new Date(user.birthdayDate)
+        const timezone = await getTimezone(user.location)
+        user.timezone = timezone
         await update(id, user)
     }
 

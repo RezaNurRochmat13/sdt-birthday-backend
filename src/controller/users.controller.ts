@@ -38,7 +38,7 @@ export default function UsersController() {
     }
 
     async function update(request: Request, response: Response) {
-        const { firstName, lastName, birthdayDate, location } = request.body
+        const { firstName, lastName, birthdayDate, location, timezone } = request.body
         
         const user = await findUserById(request.params.id)
 
@@ -48,7 +48,7 @@ export default function UsersController() {
             })
         }
         
-        await updateUser(request.params.id, { firstName, lastName, birthdayDate, location })
+        await updateUser(request.params.id, { firstName, lastName, birthdayDate, location, timezone })
 
         response.status(200).json({
             message: 'User updated successfully',
