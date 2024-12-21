@@ -1,5 +1,7 @@
 import UsersRepository from "../repository/user.repository"
+import useTimezone from "../utils/timezone.util"
 
+const { getTimezone } = useTimezone()
 const { all, findById, save, update, destroy } = UsersRepository()
 export default function UsersService() {
 
@@ -11,8 +13,11 @@ export default function UsersService() {
         return await findById(id)
     }
 
-    async function createUser(user: { firstName: string, lastName: string, birthdayDate: Date, location: string }) {
+    async function createUser(user: { firstName: string, lastName: string, birthdayDate: Date, location: string, timezone: string }) {
         user.birthdayDate = new Date(user.birthdayDate)
+        const timezone = await getTimezone(user.location)
+        console.log('Timezone location :', timezone)
+        user.timezone = timezone
         await save(user)
     }
 

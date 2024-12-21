@@ -28,8 +28,8 @@ export default function UsersController() {
     }
 
     async function create(request: Request, response: Response) {
-        const { firstName, lastName, birthdayDate, location } = request.body
-        const user = await createUser({ firstName, lastName, birthdayDate, location })
+        const { firstName, lastName, birthdayDate, location, timezone } = request.body
+        const user = await createUser({ firstName, lastName, birthdayDate, location, timezone })
 
         response.status(201).json({
             message: 'User created successfully',

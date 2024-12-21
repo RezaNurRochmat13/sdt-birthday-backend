@@ -23,6 +23,7 @@ export default function UsersRepository() {
         lastName: string
         birthdayDate: Date
         location: string
+        timezone: string
     }) {
         return await prisma.user.create({ data: user })
     }
