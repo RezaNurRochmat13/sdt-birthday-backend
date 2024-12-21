@@ -1,5 +1,5 @@
 // Import dependencies
-import UsersController from "../controller/users.controller";
+import UsersController from "../../controller/users.controller";
 
 // Mock UsersService
 const mockUsersService = {

@@ -3,7 +3,7 @@ import UsersRepository from "../repository/user.repository";
 import moment from "moment-timezone";
 import { MessageRepository } from "../repository/message.repository";
 
-export function MessageService(targetTime?: string) {
+export function MessageService(targetTime?: string | '09:00') {
     const { all: allUsers } = UsersRepository()
     const { all: allMessages, save: saveMessage } = MessageRepository()
 

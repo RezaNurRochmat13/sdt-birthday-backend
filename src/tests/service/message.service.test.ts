@@ -1,7 +1,7 @@
 // Import dependencies
 import cron from 'node-cron';
 import moment from 'moment-timezone';
-import { MessageService } from '../service/message.service';
+import { MessageService } from '../../service/message.service';
 
 jest.mock('node-cron');
 jest.mock('moment-timezone', () => ({
