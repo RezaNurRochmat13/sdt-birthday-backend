@@ -27,6 +27,10 @@ Technology for built application
 - Cors
 - Prisma ORM
 - PostgreSQL
+- Geo-Tz
+- Moment Timezone
+- Node Cron
+- Node Fetch
 - Nodemon
 - TS Node
 - Typescript
