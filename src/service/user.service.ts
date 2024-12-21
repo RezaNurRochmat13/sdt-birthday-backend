@@ -1,9 +1,9 @@
 import UsersRepository from "../repository/user.repository"
 import useTimezone from "../utils/timezone.util"
 
-const { getTimezone } = useTimezone()
-const { all, findById, save, update, destroy } = UsersRepository()
 export default function UsersService() {
+    const { getTimezone } = useTimezone()
+    const { all, findById, save, update, destroy } = UsersRepository()
 
     async function findAllUsers() {
         return all()

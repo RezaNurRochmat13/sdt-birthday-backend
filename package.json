@@ -7,17 +7,21 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
-    "sync:database": "npx prisma migrate dev --name init --schema ./src/config/prisma/schema.prisma"
+    "sync:database": "npx prisma migrate dev --name init --schema ./src/config/prisma/schema.prisma",
+    "sync:model": "npx prisma generate --schema ./src/config/prisma/schema.prisma"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.1.0",
+    "@types/node-cron": "^3.0.11",
     "@types/node-fetch": "^2.6.12",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "geo-tz": "^8.1.2",
+    "moment-timezone": "^0.5.46",
+    "node-cron": "^3.0.3",
     "node-fetch": "^2.7.0",
     "prisma": "^6.1.0"
   },

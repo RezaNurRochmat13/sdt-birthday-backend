@@ -1,8 +1,9 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import userRouter from "../routes/user.routes";
-import messageRouter from "../routes/message.routes";
 import cors from "cors";
+import messageRouter from "../routes/message.routes";
+import userRouter from "../routes/user.routes";
+import { MessageService } from "../service/message.service";
 
 dotenv.config();
 
@@ -16,9 +17,13 @@ app.use('/api/users',userRouter);
 app.use('/api/messages',messageRouter);
 
 function useApp() {
+    const { setupCronJobsSendingMessages } = MessageService()
+
     app.get("/", (req: Request, res: Response) => {
         res.send("Ping successfully");
     });
+
+    setupCronJobsSendingMessages()
 
     return app
 }

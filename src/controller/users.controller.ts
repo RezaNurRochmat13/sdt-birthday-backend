@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import UsersService from "../service/user.service";
 
-const { findAllUsers, findUserById, createUser, updateUser, deleteUser } = UsersService()
 export default function UsersController() {
+    const { findAllUsers, findUserById, createUser, updateUser, deleteUser } = UsersService()
+
     async function index(request: Request, response: Response) {
         const users = await findAllUsers()
 
