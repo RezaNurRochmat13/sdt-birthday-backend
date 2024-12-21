@@ -15,6 +15,7 @@ datasource db {
 
 model User {
   id          Int      @id @default(autoincrement())
+  email String?
   firstName   String
   lastName    String
   birthdayDate DateTime
@@ -24,18 +25,15 @@ model User {
   updatedAt DateTime @updatedAt
   deletedAt DateTime?
   sentMessages Message[] @relation("SentMessages")
-  receivedMessages Message[] @relation("ReceivedMessages")
 }
 
 model Message {
   id          Int      @id @default(autoincrement())
   sentUserId   Int
-  receivedUserId    Int
   messageContent String
   messageSentAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   deletedAt DateTime?
   sentUser User @relation("SentMessages", fields: [sentUserId], references: [id])
-  receivedUser User @relation("ReceivedMessages", fields: [receivedUserId], references: [id])
 }

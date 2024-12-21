@@ -28,8 +28,8 @@ export default function UsersController() {
     }
 
     async function create(request: Request, response: Response) {
-        const { firstName, lastName, birthdayDate, location, timezone } = request.body
-        const user = await createUser({ firstName, lastName, birthdayDate, location, timezone })
+        const { email, firstName, lastName, birthdayDate, location, timezone } = request.body
+        const user = await createUser({ email, firstName, lastName, birthdayDate, location, timezone })
 
         response.status(201).json({
             message: 'User created successfully',
@@ -38,7 +38,7 @@ export default function UsersController() {
     }
 
     async function update(request: Request, response: Response) {
-        const { firstName, lastName, birthdayDate, location, timezone } = request.body
+        const { email, firstName, lastName, birthdayDate, location, timezone } = request.body
         
         const user = await findUserById(request.params.id)
 
@@ -48,7 +48,7 @@ export default function UsersController() {
             })
         }
         
-        await updateUser(request.params.id, { firstName, lastName, birthdayDate, location, timezone })
+        await updateUser(request.params.id, { email, firstName, lastName, birthdayDate, location, timezone })
 
         response.status(200).json({
             message: 'User updated successfully',

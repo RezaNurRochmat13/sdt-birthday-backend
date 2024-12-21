@@ -15,6 +15,7 @@ export default function UsersService() {
 
     async function createUser(
         user: {
+            email: string,
             firstName: string,
             lastName: string,
             birthdayDate: Date,
@@ -29,6 +30,7 @@ export default function UsersService() {
 
     async function updateUser(id: string,
         user: {
+            email: string,
             firstName: string,
             lastName: string,
             birthdayDate: Date,
